@@ -7,6 +7,38 @@ public class InternalTools
 			return new StringCharacterIterator(s) ;
 			
 		}
+	public static StringCharacterIterator getCharacterIteratorFromString(String s,int f[])
+		{
+
+			StringBuilder answer=new StringBuilder();
+			int frequency;
+			int size=s.length();
+			for(int i=0;i<size;i++)
+				{
+					frequency=f[i];
+					while(frequency-->0)
+						{
+							answer.append(s.charAt(i));
+						}
+				}
+			return getCharacterIteratorFromString(answer.toString());
+		}
+	public static StringCharacterIterator getCharacterIteratorFromString(HashMap<Character,Integer> s)
+		{
+			StringBuilder answer=new StringBuilder();
+			int frequency;
+			for(char c:s.keySet())
+				{
+					frequency=s.get(c);
+					while(frequency-->0)
+						{
+							answer.append(c);
+						}
+				}
+			return getCharacterIteratorFromString(answer.toString());
+		}
+	
+
 	
 	public static StringCharacterIterator getCharacterIteratorFromFile(String fileName)
 		{
